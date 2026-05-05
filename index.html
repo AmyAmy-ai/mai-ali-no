@@ -113,6 +113,13 @@
   }
 
   .card-emoji { font-size: 2.6rem; margin-bottom: 10px; display: block; }
+  .card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .card-header-row .card-emoji { font-size: 2rem; margin-bottom: 0; }
   .card-name {
     font-family: 'Fraunces', serif;
     font-size: 1.15rem;
@@ -703,8 +710,7 @@ function renderGrid() {
         }
       </div>` : '';
     card.innerHTML = `
-      <span class="card-emoji">${s.emoji}</span>
-      <div class="card-name">${escHtml(s.nome)}</div>
+      <div class="card-header-row"><span class="card-emoji">${s.emoji}</span><div class="card-name">${escHtml(s.nome)}</div></div>
       <div class="card-balance${saldo === 0 ? ' zero' : ''}">${fmt(saldo)}</div>
       <div class="card-count">${s.transazioni.length} operazion${s.transazioni.length === 1 ? 'e' : 'i'}</div>
       ${progressHtml}
